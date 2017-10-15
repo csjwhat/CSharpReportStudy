@@ -1,4 +1,4 @@
-﻿namespace SSharpMSReportSample01.Properties
+﻿namespace CSharpMSReportSample01.Properties
 {
 
 

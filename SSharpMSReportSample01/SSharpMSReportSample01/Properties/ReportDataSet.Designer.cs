@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SSharpMSReportSample01.Properties {
+namespace CSharpMSReportSample01.Properties {
     
     
     /// <summary>

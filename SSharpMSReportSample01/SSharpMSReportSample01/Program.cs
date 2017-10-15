@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SSharpMSReportSample01
+namespace CSharpMSReportSample01
 {
     static class Program
     {

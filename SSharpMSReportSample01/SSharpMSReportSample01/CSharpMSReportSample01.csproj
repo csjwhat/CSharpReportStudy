@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A77012A0-6C06-43C6-9984-6398B3454ABF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SSharpMSReportSample01</RootNamespace>
-    <AssemblyName>SSharpMSReportSample01</AssemblyName>
+    <RootNamespace>CSharpMSReportSample01</RootNamespace>
+    <AssemblyName>CSharpMSReportSample01</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -95,10 +95,8 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TestReport2.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="TestReport.rdlc">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

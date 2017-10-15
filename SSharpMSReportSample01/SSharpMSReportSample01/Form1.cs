@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
-using SSharpMSReportSample01.Properties;
+using CSharpMSReportSample01.Properties;
 
-namespace SSharpMSReportSample01
+namespace CSharpMSReportSample01
 {
     public partial class Form1 : Form
     {

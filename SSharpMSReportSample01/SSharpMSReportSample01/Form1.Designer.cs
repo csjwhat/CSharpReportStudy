@@ -1,4 +1,4 @@
-﻿namespace SSharpMSReportSample01
+﻿namespace CSharpMSReportSample01
 {
     partial class Form1
     {

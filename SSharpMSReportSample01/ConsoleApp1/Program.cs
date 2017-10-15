@@ -7,7 +7,7 @@ using Microsoft.Reporting.WinForms;
 using System.IO;
 using System.Data;
 
-namespace ConsoleApp1
+namespace CSharpMSReportSample02
 {
     class Program
     {
