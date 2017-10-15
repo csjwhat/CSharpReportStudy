@@ -80,7 +80,7 @@ namespace CSharpMSReportSample02
                     out streamids, out warnings);
 
                 // ファイル名・ファイルパスの決定
-                string tempPath = @"C:\Users\Tetsutaro Yamada\Desktop";
+                string tempPath = @"C:\";
                 string saveAs = string.Format("{0}.pdf", Path.Combine(tempPath, "myfilename"));
 
                 int idx = 0;

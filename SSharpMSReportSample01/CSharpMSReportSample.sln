@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpMSReportSample01", "SSharpMSReportSample01\CSharpMSReportSample01.csproj", "{A77012A0-6C06-43C6-9984-6398B3454ABF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpMSReportSample01", "CSharpMSReportSample01\CSharpMSReportSample01.csproj", "{A77012A0-6C06-43C6-9984-6398B3454ABF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1CBE07F2-E684-4A5D-90FB-D98991B01702}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Reportへのアクセス.txt = Reportへのアクセス.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpMSReportSample02 ForBatch", "ConsoleApp1\CSharpMSReportSample02 ForBatch.csproj", "{BB79B25D-9CB0-4B93-97A1-85DAEB44A612}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpMSReportSample02 ForBatch", "CSharpMSReportSample02 ForBatch\CSharpMSReportSample02 ForBatch.csproj", "{BB79B25D-9CB0-4B93-97A1-85DAEB44A612}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
