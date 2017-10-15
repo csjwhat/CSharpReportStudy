@@ -1,0 +1,105 @@
+
+１．レポートのテキストボックスにパラメータを渡せるように設定し、
+　　C#から値を渡す。
+
+(1) プロジェクトにレポートを追加する。
+
+(2) レポート上にテキストボックスを配置し、テキストボックス上で右クリック。
+　　テキストボックスのプロパティを選択し、
+　　→ 値の横のFxを押す。→ パラメータを選択してパラメータ名を設定する。
+
+(3) パラメータをC#でセットする。
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+            List<ReportParameter> reportParams = new List<ReportParameter>();
+            reportParams.Add(new ReportParameter("ReportParameter1", "ReportParameter1 - TEST"));
+            reportParams.Add(new ReportParameter("ReportParameter2", "ReportParameter2 - TEST"));
+            this.reportViewer1.LocalReport.SetParameters(reportParams);
+        }
+
+＜参考サイト＞
+http://csharp.keicode.com/topics/ms-report-params.php
+
+２．データテーブルの使い方
+
+(1) データセットを作成する。
+　　ソリューションエクスプローラでソリューションのメンバーとして「データセット」を選択する。
+　　→ .NETでのデータセットとは、テーブル・リレーション・ビューの組み合わせを
+　　　 保持しておく入れ物のこと。中にはDataTableを複数格納できる。
+　　　 → JavaだとEntityがDataRowに近いイメージで、その集合がDataTableとなるが
+　　　　　DataSetに当たる概念はない。
+　　データセット作成時に、テーブルをデータセットに定義する。
+
+(2) レポートと(1)のデータセットを関連付ける。
+　　左のレポートデータペインでデータセットにカーソルを当て右クリック
+　　名前、データソース、使用できるデータセットと表示されるが、
+　　データソースで(1)のデータセットを選択、データセットでテーブル名を選択する。
+　→ ここが非常にわかりづらい。先ほど作成したデータセットが
+　　 レポートにとってのデータ取得元（データソース）になる。
+　→ さらに、レポート上のデータセットとは、表にデータを表示するための
+　　 データの集合体（すなわちテーブル・クエリ）を指す
+　→ なお、今回はデータベースサーバへの接続をしないため、
+　　 クエリは使えない。
+
+  ここまでの設定とオブジェクトの関連を整理
+
+　(.Net)データセット　－　(.Netデータセット)データテーブル
+　　　　　　　　　　　　　　　　　　↓
+　(Report)デーソース　－　(Report) データセット
+
+(3) レポート上に、データを表示するオブジェクトを配置する。
+
+　　ここで配置できるのは (Report) データセット
+　　レポート上にテーブルを配置する。→ Tablixというオブジェクトになる。
+　　配置したら 左のレポートデータペインのデータソースで表示したいカラムを選択し
+　　デザイナのTablixオブジェクトの列にドラッグアンドドロップすると、自動でカラムが紐づく。
+
+　　Tablixは、表頭もデータ部もTextBoxなので、ほかのテキストボックスと同様に編集できる。
+
+(2) データセットに値を入れる。
+　　今回は、DataTableに自分でデータをセットする。
+	
+	データをセットするテーブルは作成した(.Net)データセットのオブジェクトのメンバーである
+	テーブルをStronglyTypedなデータテーブル取得でとってきた。
+	データはDataTableからDataRowを作って設定。
+
+	ReportDataSourceオブジェクトに（Report)データセット 名をキーに 
+	(.Netデータセット)のデータテーブルをValueに指定して 設定し、
+	これを(Report)データソース（LocalReport.DataSourceプロパティ)に追加する。
+
+	なお、表形式データの場合、改ページによるヘッダ行出力制御が必要となるが、
+	Tablixのプロパティ「すべてのページにヘッダ列を表示する」をチェックすれば
+	自動でやってくれる。
+
+http://csharp.keicode.com/topics/ms-report-datatable.php
+http://aoplanning.com/csharp/csharp-repviw01.html
+
+参考：
+画像はデータソースペインの画像を選択すれば挿入できそう。
+また、文字化けたら各TextBoxのフォントを見直す。はじめはArielで日本語フォントがないので
+必ず文字化ける。
+
+３．PDFでの出力
+　　LocalReportオブジェクトにレポートを格納し、出力を
+　　PDFファイルに行う。以下、２つ参照を加える
+　① 以下のファイル
+　フォルダ　　{Solution Directory}\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.{version}\lib\net40
+　　
+　　ファイル名
+　　Microsoft.ReportViewer.WinForms.dll
+
+　② System.Windows.Form
+　　→ (Report)のデータセットのハンドリングに使っているらしい。
+
+　ソース上も以下２点追加
+　　using Microsoft.Reporting.WinForms;
+
+https://stackoverflow.com/questions/2684221/creating-a-pdf-from-a-rdlc-report-in-the-background
+
+困ったら：
+レポートデータ　ペインが消えてしまった → レポートデザイナ上で Ctrl＋Alt＋D
+
+参考サイト
+https://msdn.microsoft.com/query/dev15.query?appId=Dev15IDEF1&l=JA-JP&k=k(vs110.rtp.rptdesigner.reportparameters.availablevalues.f1);k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.6.1)&rd=true
+http://aoplanning.com/csharp/csharp-repviw01.html
+http://dotnetframework.blog49.fc2.com/blog-entry-3.html
